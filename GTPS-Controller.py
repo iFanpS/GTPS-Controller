@@ -1,7 +1,6 @@
 # IFANPS COPYRIGHT 2021
 # YOU COPAS YOU DIE
 
-
 import discord
 from discord.ext import commands
 from discord import Client
@@ -46,7 +45,7 @@ async def stop(ctx):
 @bot.command()
 async def world(ctx):
     listworld = len(os.listdir('worlds'))
-    await ctx.send(f"{listworld[0]} Created For Now")
+    await ctx.send(f"{listworld} Created For Now")
 
 # @bot.command()
 # async def help(ctx):
