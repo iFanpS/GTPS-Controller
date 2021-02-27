@@ -7,3 +7,6 @@
 
 # Credit 
 iFanpS#7765
+
+# Inspirated
+- GuckTubeYT
