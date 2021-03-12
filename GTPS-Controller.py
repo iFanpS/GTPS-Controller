@@ -21,6 +21,9 @@ async def status(ctx):
         if 'enet' in proc.name():
             await ctx.send("Server is UP")
             break;
+        else:
+            if 'enet' not in proc.name():
+                await ctx,send("Server is Down")
             
 @bot.command()
 async def online(ctx):
