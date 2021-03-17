@@ -75,7 +75,7 @@ async def givelevel(ctx, args1, args2):
     await ctx.send(f"New Level already added to\nPlayer: {args1}\nAmount: {args2}")
 
 @bot.command()
-async def givelevel(ctx, args1, args2):
+async def giverank(ctx, args1, args2):
     task1 = open(f'C:\\yourfolderplayer\\{args1}.json', 'r').read();
     oldlevel = re.findall('"adminLevel":(.+?)',str(task1))[0]
 
