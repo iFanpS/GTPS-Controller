@@ -86,6 +86,14 @@ async def giverank(ctx, args1, args2):
     task2.close()
     await ctx.send(f"New rank added to\nPlayer: {args1}\nAmount: {args2}")    
     
+@bot.command()
+async def count(ctx):
+    player1 = len(os.listdir('players'))
+    playersz = os.path.getsize('players')
+    world1 = len(os.listdir('worlds'))
+    worldsz = os.path.getsize('worlds')
+    await ctx.send(f'Player count: {player1}\nPlayer folder size: {playersz}\nWorld count: {world1}\nWorld folder size: {worldsz}')
+
 # @bot.command()
 # async def help(ctx):
 #     time = datetime.now()
