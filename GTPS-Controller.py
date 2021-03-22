@@ -88,11 +88,21 @@ async def giverank(ctx, args1, args2):
     
 @bot.command()
 async def count(ctx):
-    player1 = len(os.listdir('players'))
-    playersz = os.path.getsize('players')
-    world1 = len(os.listdir('worlds'))
-    worldsz = os.path.getsize('worlds')
-    await ctx.send(f'Player count: {player1}\nPlayer folder size: {playersz}\nWorld count: {world1}\nWorld folder size: {worldsz}')
+    def decsize(size_bytes):
+        if size_bytes == 0:
+            return "0B"
+        size_name = ("KB", "MB", "GB", "TB", "PB", "ZB")
+        hitungan = int(math.floor(math.log(size_bytes, 1024)))
+        prediksi = math.pow(1024, hitungan)
+        sindikat = round(size_bytes / prediksi,2)
+        return "%s %s" % (sindikat, size_name[hitungan])
+    file1 = open('players', 'rb').read()
+    ukuran = (decsize(file1))
+    file1y = len(os.listdir('players'))
+    file2 = open('worlds', 'rb').read()
+    ukuran2 = (decsize(file2))
+    file2y = len(os.listdir('worlds'))
+    await ctx.send(f'Player count: {file1y}\nPlayer folder size: {ukuran}\nWorld count: {file2y}\nWorld folder size: {ukuran2}')
 
 # @bot.command()
 # async def help(ctx):
