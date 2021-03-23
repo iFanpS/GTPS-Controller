@@ -104,9 +104,35 @@ async def count(ctx):
     file2 = open('worlds', 'rb').read()
     htng1 = len(file2)
     ukuran2 = (decsize(htng1))
-    file2y = len(os.listdir('worlds'))
+    file2y = len(os.listdir('worlds')
     await ctx.send(f'Player count: {file1y}\nPlayer folder size: {ukuran}\nWorld count: {file2y}\nWorld folder size: {ukuran2}')
+    
+@bot.command()
+async def maintenance(ctx):
+    on_off = ["on", "off"]
+    await ctx.send("type on or off")
+    
+    def check(msg):
+        return msg.author == ctx.author and msg.channel == ctx.channel and msg.content.lower() in on_off
 
+    user_onoff = (await bot.wait_for('message', check=check)).content
+    
+    if user_onoff == "on":
+        file = open('server_data.php', 'r').read()
+        olfmt = re.findall('(.*?)maint|Mainetrance', str(file))[0]
+        chgmt = file.replace(olfmt, "");
+        file2 = open('server_data.php', 'w')
+        file2.write(chgmt)
+        file2.close()
+        await ctx.send("Your maintenance message has on")
+    elif user_onoff == "off":
+        file1 = open('server_data.php', 'r').read()
+        chgmt1 = file1.replace("maint", "#maint");
+        file3 = open('server_data.php', 'w')
+        file3.write(chgmt1)
+        file3.close()
+        await ctx.send("Your maintenance message has off")
+                 
 # @bot.command()
 # async def help(ctx):
 #     time = datetime.now()
