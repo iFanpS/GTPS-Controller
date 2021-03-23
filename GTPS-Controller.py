@@ -1,5 +1,5 @@
 # IFANPS COPYRIGHT 2021
-# YOU COPAS YOU DIE
+# WANT TO RECODE OR MAKE THIS CODE BETTER DM iFanpS#0007
 
 import discord
 from discord.ext import commands
