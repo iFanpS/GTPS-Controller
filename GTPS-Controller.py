@@ -42,8 +42,9 @@ async def start(ctx):
     
 @bot.command()
 async def stop(ctx):
-    os.system("taskkill /f /im Your enet name.exe")
-    await ctx.send("Your server is Down Now")
+    gabut = os.system("taskkill /f /im Your enet name.exe")
+    if gabut == True:
+        await ctx.send("Your server is Down")
 
 @bot.command()
 async def world(ctx):
