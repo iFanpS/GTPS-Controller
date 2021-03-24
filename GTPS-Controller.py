@@ -133,25 +133,35 @@ async def maintenance(ctx):
         file3.close()
         await ctx.send("Your maintenance message has off")
 
-@bot.command()
-async def pdel(ctx, args):
-    namafile1 = f"{args}.json"
-    filepath = "yourfoldeplayerpath"
-    path = os.path.join(filepath, namafile1)
-    os.remove(path)
-    ift = os.system("taskkill /f /im Your enet name.exe")
-    if ift == True:
-        await ctx.send(f"Server has been restart and {namafile1} has deleted")
+@bot.command(pass_context = True)
+async def pdel(ctx, *, args):
+    while True:
+        try:
+            namafile1 = f"{args}.json"
+            filepath = "yourfoldeplayerpath"
+            path = os.path.join(filepath, namafile1)
+            os.remove(path)
+            ift = os.system("taskkill /f /im Your enet name.exe")
+            if ift == True:
+                await ctx.send(f"Server has been restart and {namafile1} has deleted")
+                break;
+        except FileNotFoundError:
+            await ctx.send("player not in folder")
+            break;
     
 @bot.command()
 async def wdel(ctx, args):
-    namaworld = f"{args}.json"
-    filepath = "yourfolderworldpath"
-    path = os.path.join(filepath, namaworld)
-    os.remove(path)
-    restart = os.system("taskkill /f /im Your enet name.exe")
-    if restart == True:
-        await ctx.send(f"Server has been restart and {namaworld} has deleted")                 
+    while True:
+        try:
+            namaworld = f"{args}.json"
+            filepath = "yourfolderworldpath"
+            path = os.path.join(filepath, namaworld)
+            os.remove(path)
+            restart = os.system("taskkill /f /im Your enet name.exe")
+            if restart == True:
+                await ctx.send(f"Server has been restart and {namaworld} has deleted")
+        except FileNotFoundError:
+            await ctx.send("player not in folder")                
                  
 # @bot.command()
 # async def help(ctx):
