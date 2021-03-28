@@ -14,7 +14,11 @@ Client = discord.Client()
 @bot.event
 async def on_ready():
     print(f"{Client.user} is on")
-    
+
+@bot.event
+async def on_command_error(ctx, error):
+    await ctx.send(error)
+
 @bot.command()
 async def status(ctx):
     for proc in psutil.process_iter():
