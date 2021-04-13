@@ -188,4 +188,4 @@ async def help(ctx):
     embed.set_footer(text=f"{clock} | GTPS Controller by iFanpS :)")
     await ctx.send(embed=embed)
 
-bot.run("TOKEN")
+bot.run(config['TOKEN']['token'])
