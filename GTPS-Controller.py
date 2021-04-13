@@ -179,12 +179,13 @@ async def wdel(ctx, args):
         except FileNotFoundError:
             await ctx.send("player not in folder")                
                  
-# @bot.command()
-# async def help(ctx):
-#     time = datetime.now()
-#     clock = time.strftime(' %H:%M %p')
-#     embed = discord.Embed(color=0x00ff00, title="Help Command")
-#     embed.add_field("world (for know how world created), player (for know how much account created), online (for know how much people on), start (for start your enet.exe), stop (for stop your enet.exe)")
-#     embed.set_footer("GTPS Controller by iFanpS :)")
+@bot.command()
+async def help(ctx):
+    time = datetime.now()
+    clock = time.strftime(' %H:%M %p')
+    embed = discord.Embed(color=0x00ff00, title="Help Command")
+    embed.add_field(name="List", value="wdel(for delete world),\npdel(for delete player),\nmaintenance(for activate maintenance msg),\ncount(for counting folder),\nstart(for start server),\nstop(for stop server)\ngiverank(for give rank to player),\ngivelevel(same like giverank),\ngivegem(same like givelevel),\nworld(for see how many wolrd created),\nplayer(for see how many account created),\nonline(for see online people)\nstatus(see if server up or down)")
+    embed.set_footer(text=f"{clock} | GTPS Controller by iFanpS :)")
+    await ctx.send(embed=embed)
 
 bot.run("TOKEN")
