@@ -8,9 +8,13 @@ import os, psutil
 from datetime import datetime
     
 bot = commands.Bot(command_prefix="c.")
+bot.remove_command("help")
 
 Client = discord.Client()
-    
+
+config = configparser.ConfigParser()
+config.read("config.ini")
+
 @bot.event
 async def on_ready():
     print(f"{Client.user} is on")
